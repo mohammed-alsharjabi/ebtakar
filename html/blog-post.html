@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- =========================================
+       SEO الأساسي + مشاركة اجتماعية + أداء
+  ========================================== -->
+  <title>دليلك الشامل لتطوير الويب الحديث في 2025 | Ebtakar Tech</title>
+  <meta name="description" content="استكشف أحدث التقنيات والأدوات لبناء تطبيقات ويب عصرية وسريعة وقابلة للتوسع. دليل عملي للمطورين في 2025.">
+  <meta name="keywords" content="تطوير الويب, JavaScript, React, Next.js, TypeScript, أداء, برمجة">
+  <meta name="author" content="أحمد محمد">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#0b1020">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://yoursite.com/blog/web-development-2025">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Ebtakar Tech">
+  <meta property="og:locale" content="ar_SA">
+  <meta property="og:title" content="دليلك الشامل لتطوير الويب الحديث في 2025">
+  <meta property="og:description" content="استكشف أحدث التقنيات والأدوات لبناء تطبيقات ويب عصرية وسريعة وقابلة للتوسع.">
+  <meta property="og:url" content="https://yoursite.com/blog/web-development-2025">
+  <meta property="og:image" content="https://yoursite.com/images/web-dev-2025-cover.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="غلاف: دليلك الشامل لتطوير الويب 2025">
+  <meta property="article:published_time" content="2025-10-15T10:00:00+03:00">
+  <meta property="article:modified_time" content="2025-10-15T10:00:00+03:00">
+  <meta property="article:author" content="أحمد محمد">
+  <meta property="article:section" content="تطوير الويب">
+  <meta property="article:tag" content="JavaScript">
+  <meta property="article:tag" content="React">
+  <meta property="article:tag" content="Next.js">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="دليلك الشامل لتطوير الويب الحديث في 2025">
+  <meta name="twitter:description" content="استكشف أحدث التقنيات والأدوات لبناء تطبيقات ويب عصرية وسريعة وقابلة للتوسع.">
+  <meta name="twitter:image" content="https://yoursite.com/images/web-dev-2025-cover.jpg">
+  <meta name="twitter:site" content="@YourHandle">
+
+  <!-- Hreflang (إن كان لديك نسخ لغات) -->
+  <link rel="alternate" href="https://yoursite.com/blog/web-development-2025" hreflang="ar-sa">
+  <link rel="alternate" href="https://yoursite.com/en/blog/web-development-2025" hreflang="en">
+  <link rel="alternate" href="https://yoursite.com/blog/web-development-2025" hreflang="x-default">
+
+  <!-- Preconnect للأداء -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+
+  <!-- ============ نمط الصفحة (هوية داكنة، شبكة 8px) ============ -->
+  <style>
+    :root{
+      --bg:#0b1020; --panel:#0f141b; --ink:#e7edf3; --muted:#9fb2c9;
+      --ring:rgba(255,255,255,.08); --pri:#3d6aff; --vio:#7c3aed; --radius:12px;
+    }
+    html{scroll-behavior:smooth}
+    body.article-page{background:var(--bg); color:var(--ink); font-family:'Cairo',system-ui,-apple-system,Segoe UI,Roboto,sans-serif; line-height:1.9;}
+    .container{max-width:1200px; margin-inline:auto; padding-inline:16px}
+
+    /* ===== Header bar (ثابت) ===== */
+    .article-header-bar{position:sticky; inset-block-start:0; z-index:60; background:#0c1117cc; backdrop-filter:blur(8px); border-bottom:1px solid rgba(255,255,255,.06)}
+    .ahb{display:flex; align-items:center; justify-content:space-between; padding:10px 0}
+    .brand{display:flex; align-items:center; gap:8px; color:#e7edf3; text-decoration:none; font-weight:900}
+    .brand .dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(90deg,var(--pri),var(--vio))}
+    .brand .sub{color:#9fb2c9; font-weight:700; margin-inline-start:4px}
+    .ahb-nav{display:flex; gap:14px; align-items:center}
+    .ahb-nav a{color:#dbe8ff; text-decoration:none; font-weight:700}
+    .ahb-nav .btn-primary{padding:8px 12px; border-radius:10px; background:linear-gradient(90deg,var(--pri),var(--vio)); color:#fff}
+    @media (max-width:720px){ .ahb-nav a:not(.btn-primary){display:none} }
+
+    /* ===== Reading progress ===== */
+    .reading-progress{position:fixed; inset-block-start:0; inset-inline:0; height:3px; z-index:70}
+    .reading-progress-bar{height:100%; width:0; background:linear-gradient(90deg,var(--pri),var(--vio)); transition:width .1s linear}
+
+    /* ===== Breadcrumbs ===== */
+    .breadcrumbs{border-block-end:1px solid rgba(255,255,255,.06); background:#0c1117aa; backdrop-filter:blur(6px)}
+    .breadcrumbs ul{max-width:1200px; margin:0 auto; padding:8px 16px; list-style:none; display:flex; flex-wrap:wrap; gap:8px}
+    .breadcrumbs a{color:#dbe8ff; text-decoration:none}
+    .breadcrumbs li{color:var(--muted); font-weight:600; font-size:12px}
+    .breadcrumbs li+li::before{content:"/"; opacity:.6; margin-inline:6px}
+
+    /* ===== Article header ===== */
+    .article-header{max-width:1000px; margin:16px auto 8px; padding-inline:16px}
+    .article-category{display:inline-block; padding:4px 10px; border:1px solid var(--ring); border-radius:999px; background:rgba(255,255,255,.02); color:#dbe8ff; font-weight:800; font-size:12px}
+    .article-title{margin:10px 0 6px; font-weight:900; font-size:34px; line-height:1.25; letter-spacing:.2px; color:#fff}
+    @media (max-width:640px){ .article-title{font-size:28px} }
+    .article-meta{display:flex; align-items:center; flex-wrap:wrap; gap:10px; color:var(--muted); font-weight:600; font-size:13px}
+    .article-author-info{display:flex; align-items:center; gap:8px; margin-inline-end:8px}
+    .article-author-avatar{width:32px; height:32px; border-radius:50%; border:1px solid var(--ring)}
+    .article-author-name{font-weight:800; color:#dbe8ff}
+
+    /* ===== Cover image ===== */
+    .article-cover{max-width:1200px; margin:8px auto 0; padding-inline:16px}
+    .article-cover img{width:100%; height:auto; aspect-ratio:16/8; object-fit:cover; border-radius:var(--radius); border:1px solid var(--ring); display:block}
+
+    /* ===== Layout (TOC + Content) ===== */
+    .article-layout{max-width:1200px; margin:16px auto 0; padding:0 16px 24px; display:grid; grid-template-columns:280px 1fr; gap:24px; align-items:start}
+    @media (max-width:1024px){ .article-layout{grid-template-columns:1fr} }
+
+    /* TOC */
+    .toc-wrapper{position:sticky; inset-block-start:88px}
+    .table-of-contents{border:1px solid var(--ring); border-radius:var(--radius); background:rgba(255,255,255,.02); padding:12px}
+    .table-of-contents h3{margin:0 0 8px; font-weight:900; font-size:14px; color:#fff}
+    .table-of-contents ul{list-style:none; margin:0; padding:0; display:grid; gap:6px}
+    .table-of-contents a{color:var(--muted); text-decoration:none; font-weight:700; font-size:13px}
+    .table-of-contents li ul{padding-inline-start:10px; display:grid; gap:6px}
+    .table-of-contents a:hover{color:#dbe8ff}
+
+    /* Article */
+    .article-content{max-width:840px}
+    .article-content p{margin:8px 0; color:var(--ink)}
+    .article-content h2{margin:16px 0 6px; font-weight:900; font-size:22px; line-height:1.35; color:#fff}
+    .article-content h3{margin:14px 0 6px; font-weight:800; font-size:18px; line-height:1.4; color:#dbe8ff}
+    .article-content img{width:100%; height:auto; border-radius:var(--radius); border:1px solid var(--ring); display:block; margin:10px 0}
+    .article-content ul{margin:8px 0; padding:0 18px}
+    .article-content li{margin:6px 0}
+    blockquote{margin:12px 0; padding:10px 12px; border:1px solid var(--ring); border-radius:var(--radius); background:rgba(255,255,255,.02); color:#dbe8ff}
+
+    /* Code / Tables */
+    pre{margin:10px 0; border:1px solid var(--ring); border-radius:var(--radius); background:var(--panel); overflow:auto}
+    pre code{display:block; padding:12px 14px; font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:13px; color:#e7edf3}
+    .table-wrap{margin:12px 0; border:1px solid var(--ring); border-radius:var(--radius); overflow:auto; background:rgba(255,255,255,.02)}
+    table{border-collapse:collapse; width:100%; min-width:560px}
+    thead th{background:rgba(255,255,255,.03); color:#dbe8ff; font-weight:900; font-size:13px; text-align:right}
+    td,th{padding:10px 12px; border-bottom:1px solid rgba(255,255,255,.06)}
+    tbody tr:hover{background:rgba(255,255,255,.02)}
+
+    /* Tags / Share */
+    .article-tags{margin:16px 0 0}
+    .article-tags h4{margin:0 0 8px; font-weight:900; font-size:14px; color:#fff}
+    .tags-list{display:flex; flex-wrap:wrap; gap:8px}
+    .tag{display:inline-block; padding:6px 10px; border:1px solid var(--ring); border-radius:999px; color:#dbe8ff; text-decoration:none; background:rgba(255,255,255,.02); font-weight:800; font-size:12px}
+    .tag:hover{transform:translateY(-2px)}
+    .article-share{margin:16px 0; padding:12px; border:1px solid var(--ring); border-radius:var(--radius); background:rgba(255,255,255,.02)}
+    .article-share h4{margin:0 0 8px; font-weight:900; font-size:14px; color:#fff}
+    .share-buttons{display:flex; flex-wrap:wrap; gap:8px}
+    .share-btn{display:inline-flex; align-items:center; gap:6px; padding:8px 12px; border-radius:10px; border:1px solid var(--ring); text-decoration:none; font-weight:800; font-size:12px; color:#fff; background:#0f141b; cursor:pointer}
+    .share-btn:hover{transform:translateY(-2px)}
+    .share-btn-twitter{background:linear-gradient(135deg,#1c1f24,#0f141b)}
+    .share-btn-linkedin{background:linear-gradient(135deg,#0a66c2,#0f141b)}
+    .share-btn-whatsapp{background:linear-gradient(135deg,#25d366,#0f141b)}
+    .share-btn-copy{background:linear-gradient(135deg,var(--pri),var(--vio)); border:0}
+
+    /* Footer */
+    .article-footer{margin-top:24px; border-top:1px solid rgba(255,255,255,.06); background:#0c1117}
+    .af{display:grid; gap:18px; grid-template-columns:1fr auto; align-items:start; padding:18px 0}
+    .af-about p{color:var(--muted); margin:6px 0}
+    .af-social{display:flex; gap:10px; margin-top:6px}
+    .af-social a{display:inline-flex; width:28px; height:28px; align-items:center; justify-content:center; border:1px solid var(--ring); border-radius:8px; color:#e7edf3; text-decoration:none}
+    .af-links{display:flex; gap:12px; flex-wrap:wrap}
+    .af-links a{color:#dbe8ff; text-decoration:none; font-weight:700}
+    .af-copy{grid-column:1/-1; color:var(--muted); font-weight:600; text-align:center; padding-top:8px; border-top:1px dashed rgba(255,255,255,.06)}
+    @media (max-width:800px){ .af{grid-template-columns:1fr} }
+
+    /* Responsive tweaks */
+    @media (max-width:900px){ .toc-wrapper{position:static} .table-of-contents{margin-block-end:12px} }
+    @media (max-width:640px){
+      .article-meta{gap:8px; font-size:12px}
+      .article-cover img{aspect-ratio:16/9}
+      .share-btn{padding:8px 10px}
+    }
+    ::selection{background:#2042ff44; color:#fff}
+  </style>
+
+  <!-- ========= JSON-LD: Article ========= -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "دليلك الشامل لتطوير الويب الحديث في 2025",
+    "description": "استكشف أحدث التقنيات والأدوات لبناء تطبيقات ويب عصرية وسريعة وقابلة للتوسع.",
+    "image": "https://yoursite.com/images/web-dev-2025-cover.jpg",
+    "datePublished": "2025-10-15T10:00:00+03:00",
+    "dateModified": "2025-10-15T10:00:00+03:00",
+    "author": {
+      "@type": "Person",
+      "name": "أحمد محمد",
+      "url": "https://yoursite.com/authors/ahmed-mohamed",
+      "sameAs": ["https://www.linkedin.com/in/ahmed","https://x.com/ahmed"]
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Ebtakar Tech",
+      "logo": { "@type": "ImageObject", "url": "https://yoursite.com/logo.png" }
+    },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://yoursite.com/blog/web-development-2025" },
+    "articleSection": "تطوير الويب",
+    "keywords": "تطوير الويب, JavaScript, React, Next.js, TypeScript, أداء, برمجة",
+    "isAccessibleForFree": "True",
+    "wordCount": "2500",
+    "inLanguage": "ar"
+  }
+  </script>
+
+  <!-- ========= JSON-LD: Breadcrumb ========= -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"الرئيسية","item":"https://yoursite.com"},
+      {"@type":"ListItem","position":2,"name":"المدونة","item":"https://yoursite.com/blog"},
+      {"@type":"ListItem","position":3,"name":"تطوير الويب","item":"https://yoursite.com/blog/category/web-development"},
+      {"@type":"ListItem","position":4,"name":"دليلك الشامل لتطوير الويب الحديث في 2025","item":"https://yoursite.com/blog/web-development-2025"}
+    ]
+  }
+  </script>
+</head>
+<body class="article-page">
+
+  <!-- شريط التقدم -->
+  <div class="reading-progress"><div class="reading-progress-bar" id="rpbar"></div></div>
+
+  <!-- هيدر خفيف للمدونة -->
+  <header class="article-header-bar" aria-label="رأس الموقع">
+    <div class="container ahb">
+      <a href="/" class="brand" aria-label="Ebtakar Tech">
+        <span class="dot"></span><strong>Ebtakar Tech</strong><span class="sub">ابتكار تك</span>
+      </a>
+      <nav class="ahb-nav" aria-label="روابط أساسية">
+        <a href="/#services">الخدمات</a>
+        <a href="/#worksShow">المشاريع</a>
+        <a href="/blog.html">المدوّنة</a>
+        <a href="/#support" class="btn-primary">احصل على عرض</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- مسارات التنقل -->
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <ul>
+      <li><a href="/">الرئيسية</a></li>
+      <li><a href="/blog.html">المدونة</a></li>
+      <li><a href="/blog/category/web-development">تطوير الويب</a></li>
+      <li>دليلك الشامل لتطوير الويب الحديث في 2025</li>
+    </ul>
+  </nav>
+
+  <!-- رأس المقال -->
+  <header class="article-header">
+    <span class="article-category">تطوير الويب</span>
+    <h1 class="article-title">دليلك الشامل لتطوير الويب الحديث في 2025</h1>
+    <div class="article-meta">
+      <div class="article-author-info">
+        <img src="https://i.pravatar.cc/150?img=12" alt="أحمد محمد" class="article-author-avatar" width="32" height="32">
+        <div><div class="article-author-name">أحمد محمد</div></div>
+      </div>
+      <span>📅 15 أكتوبر 2025</span>
+      <span>⏱️ <span class="read-time-value" id="readTime">8</span> دقائق قراءة</span>
+      <span>👁️ 1,245 مشاهدة</span>
+    </div>
+  </header>
+
+  <!-- صورة الغلاف (مع أبعاد لمنع CLS) -->
+  <div class="article-cover">
+    <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=600&fit=crop"
+         alt="تطوير الويب الحديث في 2025" width="1200" height="600" loading="eager" fetchpriority="high">
+  </div>
+
+  <!-- التخطيط الرئيسي -->
+  <div class="article-layout">
+    <!-- فهرس المحتوى -->
+    <aside class="toc-wrapper">
+      <nav class="table-of-contents" aria-label="Table of Contents">
+        <h3>محتويات المقال</h3>
+        <ul>
+          <li><a href="#introduction">مقدمة</a></li>
+          <li><a href="#modern-frameworks">أطر العمل الحديثة</a>
+            <ul>
+              <li><a href="#react-ecosystem">نظام React البيئي</a></li>
+              <li><a href="#nextjs">Next.js والتطبيقات الشاملة</a></li>
+            </ul>
+          </li>
+          <li><a href="#performance">تحسين الأداء</a></li>
+          <li><a href="#typescript">لغة TypeScript</a></li>
+          <li><a href="#best-practices">أفضل الممارسات</a></li>
+          <li><a href="#conclusion">الخلاصة</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- محتوى المقال -->
+    <article class="article-content" id="article">
+      <h2 id="introduction">مقدمة</h2>
+      <p>في عالم التكنولوجيا المتسارع، أصبح تطوير الويب أحد أكثر المجالات ديناميكية وتطورًا. مع دخولنا عام 2025، نشهد ثورة حقيقية في الأدوات والتقنيات المستخدمة لبناء تطبيقات الويب الحديثة.</p>
+      <p>في هذا المقال الشامل، سنستكشف معًا أحدث التقنيات والممارسات التي يجب على كل مطور ويب معرفتها للبقاء في طليعة المجال. سواء كنت مبتدئًا أو محترفًا، ستجد هنا معلومات قيمة تساعدك على تطوير مهاراتك.</p>
+
+      <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=400&fit=crop"
+           alt="بيئة تطوير ويب عصرية" width="800" height="400" loading="lazy">
+
+      <h2 id="modern-frameworks">أطر العمل الحديثة</h2>
+      <p>أطر العمل (Frameworks) هي حجر الأساس في تطوير الويب الحديث. توفر هذه الأدوات بنية منظمة وأنماط معتمدة تسهل عملية التطوير وتحسن من جودة الكود.</p>
+
+      <h3 id="react-ecosystem">نظام React البيئي</h3>
+      <p>React تبقى واحدة من أكثر مكتبات JavaScript شعبية في 2025. مع مجتمع ضخم ونظام إضافات غني، تُعد خيارًا آمنًا للإنتاج.</p>
+      <ul>
+        <li><strong>Server Components</strong>: تقديم مكونات من الخادم لتحسين الأداء.</li>
+        <li><strong>Concurrent Features</strong>: استجابة أعلى للتطبيقات.</li>
+        <li><strong>Suspense</strong>: إدارة أفضل لحالات التحميل.</li>
+        <li><strong>Hooks متقدمة</strong>: مثل <code>useTransition</code> و <code>useDeferredValue</code>.</li>
+      </ul>
+
+      <blockquote>“React ليست مجرد مكتبة، بل نظام بيئي متكامل يدعم ملايين المطورين.”</blockquote>
+
+      <h3 id="nextjs">Next.js والتطبيقات الشاملة</h3>
+      <p>Next.js الخيار الأول لإطلاق تطبيقات React في الإنتاج: SSR/SSG/ISR، وتكامل رائع مع تحسين الصور والتوجيه.</p>
+
+      <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=400&fit=crop"
+           alt="كود برمجي على شاشة" width="800" height="400" loading="lazy">
+
+      <h2 id="performance">تحسين الأداء</h2>
+      <p>الأداء ضرورة أساسية. أهم التقنيات:</p>
+      <ul>
+        <li><strong>Code Splitting</strong> و <strong>Lazy Loading</strong></li>
+        <li><strong>تحسين الصور</strong> باستخدام أدوات المنصّة</li>
+        <li><strong>Caching</strong> واستراتيجيات Service Worker</li>
+        <li><strong>Core Web Vitals</strong> كمقياس مستمر</li>
+      </ul>
+
+      <h2 id="typescript">لغة TypeScript</h2>
+      <p>TypeScript أصبحت معيارًا فعليًا في مشاريع JS الحديثة: تقليل الأخطاء، وثوقية أعلى، وصيانة أسهل.</p>
+
+      <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=800&h=400&fit=crop"
+           alt="برمجة بلغة TypeScript" width="800" height="400" loading="lazy">
+
+      <h2 id="best-practices">أفضل الممارسات</h2>
+      <ul>
+        <li><strong>اختبار الكود</strong> (Jest/RTL)</li>
+        <li><strong>مراجعة الكود</strong> الدورية</li>
+        <li><strong>توثيق واضح</strong> للواجهات</li>
+        <li><strong>أمان</strong> ضد XSS/CSRF</li>
+        <li><strong>إتاحة</strong> للجميع (Accessibility)</li>
+      </ul>
+
+      <h2 id="conclusion">الخلاصة</h2>
+      <p>تطوير الويب في 2025 مليء بالفرص. البقاء مواكبًا للممارسات والتقنيات الحديثة هو مفتاح النجاح.</p>
+
+      <!-- التصنيفات والوسوم -->
+      <div class="article-tags">
+        <h4>التصنيفات والوسوم</h4>
+        <div class="tags-list">
+          <a href="/blog/category/web-development" class="tag">تطوير الويب</a>
+          <a href="/blog/tag/javascript" class="tag">JavaScript</a>
+          <a href="/blog/tag/react" class="tag">React</a>
+          <a href="/blog/tag/nextjs" class="tag">Next.js</a>
+          <a href="/blog/tag/typescript" class="tag">TypeScript</a>
+          <a href="/blog/tag/performance" class="tag">تحسين الأداء</a>
+        </div>
+      </div>
+
+      <!-- أزرار المشاركة -->
+      <div class="article-share">
+        <h4>شارك هذا المقال</h4>
+        <div class="share-buttons">
+          <a href="#" class="share-btn share-btn-twitter" data-platform="twitter" rel="noopener" target="_blank"><span>𝕏</span> شارك على X</a>
+          <a href="#" class="share-btn share-btn-linkedin" data-platform="linkedin" rel="noopener" target="_blank"><span>in</span> شارك على LinkedIn</a>
+          <a href="#" class="share-btn share-btn-whatsapp" data-platform="whatsapp" rel="noopener" target="_blank"><span>📱</span> WhatsApp</a>
+          <button class="share-btn share-btn-copy" id="copyLink"><span>🔗</span> نسخ الرابط</button>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <!-- فوتر المقال -->
+  <footer class="article-footer" aria-label="تذييل المقال">
+    <div class="container af">
+      <section class="af-about">
+        <strong>Ebtakar Tech</strong>
+        <p>حلول برمجية متكاملة — مواقع، تطبيقات، متاجر، تكاملات، وسحابة.</p>
+        <div class="af-social">
+          <a href="https://x.com/your" aria-label="X" rel="noopener" target="_blank">𝕏</a>
+          <a href="https://www.linkedin.com/company/yourcompany" aria-label="LinkedIn" rel="noopener" target="_blank">in</a>
+          <a href="https://wa.me/966568767724" aria-label="WhatsApp" rel="noopener" target="_blank">WA</a>
+        </div>
+      </section>
+      <nav class="af-links" aria-label="روابط">
+        <a href="/#about">من نحن</a>
+        <a href="/#services">الخدمات</a>
+        <a href="/blog.html">المدوّنة</a>
+        <a href="/privacy.html">سياسة الخصوصية</a>
+        <a href="/terms.html">الشروط والأحكام</a>
+      </nav>
+      <div class="af-copy">© <span id="y"></span> Ebtakar Tech — جميع الحقوق محفوظة</div>
+    </div>
+  </footer>
+
+  <!-- JS خفيف: شريط التقدم + زمن القراءة + روابط المشاركة + سنة الحقوق -->
+  <script>
+    // سنة الحقوق
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // شريط التقدم بالقراءة
+    const rpbar = document.getElementById('rpbar');
+    const onScroll = () => {
+      const h = document.documentElement;
+      const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight);
+      rpbar.style.width = (scrolled * 100).toFixed(2) + '%';
+    };
+    document.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+    // حساب زمن القراءة (تقريبي 200 كلمة/دقيقة)
+    (function(){
+      const el = document.getElementById('article');
+      if(!el) return;
+      const text = el.innerText || '';
+      const words = text.trim().split(/\s+/).length;
+      const minutes = Math.max(1, Math.round(words / 200));
+      const rt = document.getElementById('readTime');
+      if(rt) rt.textContent = minutes;
+    })();
+
+    // إنشاء روابط المشاركة ديناميكيًا
+    (function(){
+      const url = window.location.href;
+      const title = document.querySelector('.article-title')?.textContent?.trim() || document.title;
+      const tweet = `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`;
+      const li = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
+      const wa = `https://api.whatsapp.com/send?text=${encodeURIComponent(title + ' ' + url)}`;
+
+      document.querySelectorAll('[data-platform="twitter"]').forEach(a=>a.href=tweet);
+      document.querySelectorAll('[data-platform="linkedin"]').forEach(a=>a.href=li);
+      document.querySelectorAll('[data-platform="whatsapp"]').forEach(a=>a.href=wa);
+
+      const copyBtn = document.getElementById('copyLink');
+      if(copyBtn){
+        copyBtn.addEventListener('click', async ()=>{
+          try{ await navigator.clipboard.writeText(url); copyBtn.textContent = 'تم النسخ ✅'; }
+          catch{ copyBtn.textContent = 'لم ينسخ — انسخ يدويًا'; }
+          setTimeout(()=>copyBtn.innerHTML = '<span>🔗</span> نسخ الرابط', 2000);
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

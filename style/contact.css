@@ -1,0 +1,170 @@
+
+
+/* Contact section (uses site CSS variables) */
+#support{ padding:76px 0; background:var(--bg); }
+#support .section-title .gradient{
+  background: linear-gradient(135deg, var(--violet), var(--blue));
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+}
+#support.reveal { opacity:1 !important; transform:none !important; visibility:visible !important; }
+
+/* quick contact cards */
+#support .contact-cards{
+  display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; margin-bottom:22px;
+}
+#support .contact-card{
+  background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:18px;
+  display:flex; gap:12px; align-items:center; color:var(--text); text-decoration:none;
+  transition: transform .2s ease, box-shadow .25s ease, border-color .25s ease;
+}
+#support .contact-card:hover{ transform:translateY(-2px); box-shadow:0 12px 26px rgba(88,166,255,.12); border-color:#2a3a4f; }
+#support .ic{ width:42px;height:42px;border-radius:12px;background:#ffffff10;border:1px solid #ffffff1c;display:grid;place-items:center; color:#dbe8ff; }
+#support .card-title{ font-weight:900; }
+#support .card-sub{ color:var(--muted); font-size:.95rem; }
+
+/* main two columns */
+#support .contact-flex{ display:grid; grid-template-columns:1.1fr .9fr; gap:22px; align-items:start; }
+#support .card{ background:var(--surface); border:1px solid var(--line); border-radius:18px; padding:20px; }
+#support .lbl{ font-weight:800; }
+#support input, #support select, #support textarea{
+  background:#0c1117; border:1px solid #ffffff14; border-radius:12px; color:var(--text); padding:12px 14px;
+  font:inherit; width:100%;
+}
+#support textarea{ resize:vertical; }
+
+#support .row-2{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+#support .mt-12{ margin-top:12px; }
+#support .actions{ display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
+
+#support .btn{ border:1px solid #ffffff22; background:#ffffff0f; color:#fff; font-weight:800; padding:10px 14px; border-radius:12px; }
+/* زر الإرسال كما كان (بدون تغيير) */
+#support .btn.primary{ background: linear-gradient(135deg, var(--violet), var(--blue)); border:none; }
+
+/* phone */
+#support .phone-group{ display:grid; grid-template-columns:110px 1fr; gap:10px; align-items:center; }
+#support .phone-group select{ white-space:nowrap; }
+
+/* side */
+#support .side{ display:grid; gap:16px; }
+#support .side-title{ font-weight:900; margin-bottom:8px; }
+#support .side-sub{ color:var(--muted); margin-bottom:10px; }
+#support .side-list{ display:grid; gap:8px; }
+#support .side-list a{ color:var(--text); text-decoration:none; }
+#support .map{ overflow:hidden; border-radius:18px; border:1px solid var(--line); }
+
+/* responsive */
+@media (max-width:1080px){
+  #support .contact-cards{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media (max-width:760px){
+  #support .contact-cards{ grid-template-columns:1fr; }
+  #support .contact-flex{ grid-template-columns:1fr; }
+  #support .row-2{ grid-template-columns:1fr; }
+  #support .phone-group{ grid-template-columns: 1fr; }
+}
+
+
+/* =========================================
+   Floating FABs (WhatsApp + Call)
+   ========================================= */
+
+/* ألوان افتراضية */
+:root{
+  --bg:#0c1117; --surface:#0f141b; --line:#1b2430;
+  --text:#e7edf3; --muted:#9fb2c9; --blue:#58a6ff; --violet:#a78bfa;
+  --wa-1:#25D366; --wa-2:#1EBE5A;      /* غير مستخدمة الآن بعد التعديل */
+  --call-1:#58a6ff; --call-2:#7dd3fc;  /* غير مستخدمة الآن بعد التعديل */
+}
+
+/* الحاوية الثابتة للـ FABs */
+.fab-stack{
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  z-index: 9999;
+}
+@media (max-width: 520px){
+  .fab-stack{ right: 16px; bottom: 16px; gap: 16px; }
+}
+
+/* الزر العائم العام */
+.fab{
+  position: relative;
+  width: 56px; height: 56px; border-radius: 999px;
+  display: inline-grid; place-items: center; color: #fff;
+  border: 1px solid rgba(255,255,255,.18); background: #ffffff14;
+  box-shadow: 0 10px 26px rgba(0,0,0,.35); cursor: pointer;
+  user-select: none; -webkit-tap-highlight-color: transparent;
+  overflow: hidden; isolation: isolate;
+  transition: transform .2s ease, filter .2s ease;
+}
+@media (min-width: 992px){
+  .fab--lg{ width: 64px; height: 64px; }
+}
+.fab:focus-visible{ outline: 2px solid rgba(255,255,255,.65); outline-offset: 3px; }
+.fab svg{ width: 26px; height: 26px; position: relative; z-index: 2; filter: drop-shadow(0 3px 8px rgba(0,0,0,.28)); }
+
+/* === التعديل المطلوب: نفس تدرّج زر الإرسال للزرين العائمين === */
+.fab--wa{   background: linear-gradient(135deg, var(--wa-1), var(--wa-2)); border:none; }
+.fab--call{ background: linear-gradient(135deg, var(--call-1), var(--call-2)); border:none; }
+
+/* نبض + حلقة + لمعة */
+.fab{ animation: heartbeat 2.2s ease-in-out infinite; }
+@keyframes heartbeat{
+  0%{transform:scale(1);box-shadow:0 10px 26px rgba(0,0,0,.35)}
+  14%{transform:scale(1.09);box-shadow:0 14px 28px rgba(0,0,0,.40)}
+  28%{transform:scale(1);box-shadow:0 10px 26px rgba(0,0,0,.35)}
+  42%{transform:scale(1.06);box-shadow:0 12px 30px rgba(0,0,0,.42)}
+  70%{transform:scale(1);box-shadow:0 10px 26px rgba(0,0,0,.35)}
+  100%{transform:scale(1);box-shadow:0 10px 26px rgba(0,0,0,.35)}
+}
+.fab::after{
+  content:""; position:absolute; inset:0; border-radius:999px;
+  box-shadow:0 0 0 0 rgba(255,255,255,.18); opacity:.45; transform:scale(1);
+  animation:pulseRing 2.2s ease-out infinite; z-index:0;
+}
+@keyframes pulseRing{
+  0%{box-shadow:0 0 0 0 rgba(255,255,255,.18);opacity:.45;transform:scale(1)}
+  60%{box-shadow:0 0 0 18px rgba(255,255,255,0);opacity:0;transform:scale(1.12)}
+  100%{box-shadow:0 0 0 0 rgba(255,255,255,0);opacity:0;transform:scale(1.12)}
+}
+.fab::before{
+  content:""; position:absolute; inset:-60%;
+  transform: rotate(10deg) translateX(-70%);
+  background: linear-gradient(130deg, transparent 46%, rgba(255,255,255,.22) 50%, transparent 54%);
+  opacity:.0; animation: shineSweep 3.6s linear infinite; z-index:1;
+}
+@keyframes shineSweep{
+  0%{transform:rotate(10deg) translateX(-70%);opacity:0}
+  10%{opacity:.9}
+  40%{transform:rotate(10deg) translateX(70%);opacity:0}
+  100%{transform:rotate(10deg) translateX(70%);opacity:0}
+}
+.fab:hover{ filter:saturate(1.06); }
+.fab:hover::before{ animation-duration:2.2s; }
+.fab:active{ transform: scale(.97); }
+
+/* تلميح نصّي */
+.fab-label{
+  position:absolute; right:calc(100% + 10px); top:50%; transform:translateY(-50%);
+  padding:6px 10px; color:var(--text); background:#00000070; border:1px solid rgba(255,255,255,.18);
+  border-radius:10px; font-size:.85rem; white-space:nowrap; pointer-events:none;
+  opacity:0; transition:opacity .2s ease, transform .2s ease; backdrop-filter:blur(6px);
+}
+.fab:hover .fab-label, .fab:focus-visible .fab-label{ opacity:1; transform:translateY(-50%) translateX(-4px); }
+
+/* تقليل الحركة */
+@media (prefers-reduced-motion: reduce){
+  .fab, .fab::before, .fab::after{ animation:none !important; transition:none !important; }
+}
+
+/* وضع فاتح */
+@media (prefers-color-scheme: light){
+  .fab{ box-shadow: 0 8px 22px rgba(0,0,0,.18); }
+}
+
+

@@ -1,0 +1,491 @@
+/* ===== Base ===== */
+:root {
+  --bg: #0b1020;
+  --text: #e7edf3;
+  --muted: #9fb3c8;
+  --brand: #6aa7ff;
+  
+  --brand2: #8b5cf6;
+  
+  --card: #0f1524cc;
+  --stroke: #1e2a41;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body.pd-page {
+  margin: 0;
+  font-family: 'Cairo', system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", sans-serif;
+  background:
+    radial-gradient(1100px 500px at 10% -20%, #16233f 0%, transparent 45%),
+    radial-gradient(900px 500px at 90% -10%, #1b2440 0%, transparent 45%),
+    var(--bg);
+  color: var(--text);
+  line-height: 1.8;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ===== Containers ===== */
+.pd-container {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 16px;
+}
+
+/* ===== Top / Breadcrumb ===== */
+.pd-top {
+  padding: 10px 0;
+}
+
+.pd-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #a8b7cc;
+  font-size: 14px;
+}
+
+.pd-breadcrumb .crumb {
+  color: #cfe0f7;
+  opacity: .9;
+}
+
+.pd-breadcrumb .crumb:hover {
+  opacity: 1;
+}
+
+.pd-breadcrumb .current {
+  color: #eaf2ff;
+  font-weight: 800;
+}
+
+.pd-breadcrumb .sep {
+  opacity: .4;
+}
+
+/* ===== Hero ===== */
+.pd-hero {
+  padding: clamp(28px, 5vw, 56px) 0 16px;
+}
+
+.pd-title {
+  font-size: clamp(26px, 4vw, 40px);
+  font-weight: 900;
+  background: linear-gradient(90deg, var(--brand), var(--brand2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.pd-lead {
+  color: var(--muted);
+  margin: 8px 0 14px;
+}
+
+.pd-video {
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid #1a2746;
+  box-shadow: 0 16px 60px rgba(0, 0, 0, .35);
+}
+
+.pd-video video {
+  width: 100%;
+  height: 300px;
+  display: block;
+  background: #0b1324;
+}
+
+/* ===== Tech & Meta ===== */
+.pd-info {
+  padding: 8px 0 4px;
+}
+
+.pd-h2 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: 800;
+  color: #eaf2ff;
+}
+
+.pd-tech {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0;
+  margin: 0;
+}
+
+.pd-tech li {
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 14px;
+  background: linear-gradient(90deg, color-mix(in oklab, var(--brand) 18%, #0e1530), #0d1326);
+  border: 1px solid #203055;
+  color: #dff0ff;
+}
+
+.grid {
+  display: grid;
+  gap: 14px;
+}
+
+.pd-meta {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 14px;
+}
+
+@media (max-width:1024px) {
+  .pd-meta {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width:560px) {
+  .pd-meta {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pd-card {
+  background: linear-gradient(180deg, color-mix(in oklab, var(--card) 92%, transparent), color-mix(in oklab, #0c1426 88%, transparent));
+  border: 1px solid var(--stroke);
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, .35);
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  transform: translateY(10px);
+  animation: pd-fade .5s .05s forwards ease-out;
+}
+
+.pd-card.pad {
+  padding: 18px;
+}
+
+.pd-meta-label {
+  color: #cfe0f7;
+  font-size: 14px;
+}
+
+.pd-meta-value {
+  color: #eaf2ff;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.pd-link {
+  color: color-mix(in oklab, var(--brand) 80%, white);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ===== Tabs ===== */
+.pd-tabs {
+  padding: 8px 0 48px;
+}
+
+.pd-tabs-nav {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pd-tab {
+  border: 1px solid #223356;
+  background: #0e1427;
+  color: #cfe3ff;
+  padding: 10px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: border-color .18s, background .18s, transform .1s;
+}
+
+.pd-tab:hover {
+  border-color: color-mix(in oklab, var(--brand) 55%, #223356);
+  transform: translateY(-1px);
+}
+
+.pd-tab.is-active {
+  background: linear-gradient(90deg, color-mix(in oklab, var(--brand) 40%, #0e1530), color-mix(in oklab, var(--brand2) 30%, #0d1326));
+  border-color: color-mix(in oklab, var(--brand) 50%, #203055);
+  color: white;
+}
+
+.pd-panel {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity .25s, transform .25s;
+  margin-top: 12px;
+}
+
+.pd-panel.is-active {
+  opacity: 1;
+  transform: none;
+}
+
+.pd-panel[hidden] {
+  display: none;
+}
+
+/* Features */
+.pd-feats {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+@media (max-width:1024px) {
+  .pd-feats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width:560px) {
+  .pd-feats {
+    grid-template-columns: 1fr;
+  }
+}
+
+.feat h3 {
+  font-size: 16px;
+  color: #eaf2ff;
+  margin-bottom: 6px;
+}
+
+.feat p {
+  color: #cfe0f7;
+}
+
+/* Gallery */
+.pd-gallery {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+@media (max-width:1024px) {
+  .pd-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width:560px) {
+  .pd-gallery {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pd-thumb {
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  border: 1px solid #1a2746;
+  display: block;
+}
+
+.pd-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .35s ease;
+}
+
+.pd-thumb:hover img {
+  transform: scale(1.04);
+}
+
+/* Links */
+.pd-links-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.pd-btn {
+  border: 1px solid color-mix(in oklab, var(--brand) 50%, #203055);
+  background: linear-gradient(90deg, color-mix(in oklab, var(--brand) 40%, #0e1530), color-mix(in oklab, var(--brand2) 30%, #0d1326));
+  color: white;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: transform .16s, box-shadow .16s, border-color .16s;
+}
+
+.pd-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(58, 120, 255, .25);
+}
+
+.pd-btn.ghost {
+  background: #0e1427;
+  color: #cfe3ff;
+  border: 1px dashed #28407a;
+}
+
+/* Bullets */
+.pd-bullets {
+  margin: 12px 0 0 0;
+  padding: 0 18px;
+  color: #cfe0f7;
+}
+
+/* Lightbox */
+.pd-lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 8, 16, .85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 80;
+}
+
+.pd-lightbox.is-open {
+  display: flex;
+}
+
+.pd-lightbox-img {
+  max-width: min(92vw, 1200px);
+  max-height: 85vh;
+  border-radius: 16px;
+  border: 1px solid #223356;
+  box-shadow: 0 20px 80px rgba(0, 0, 0, .6);
+}
+
+.pd-lightbox-close {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  border: 1px solid #28407a;
+  background: #0e1427;
+  color: #e7edf3;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* Footer CTA */
+.pd-cta {
+  padding: 36px 0 64px;
+}
+
+.pd-cta-box {
+  background: linear-gradient(180deg, color-mix(in oklab, var(--card) 92%, transparent), color-mix(in oklab, #0c1426 88%, transparent));
+  border: 1px solid var(--stroke);
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.pd-cta h2 {
+  margin: 0;
+  font-size: 22px;
+  color: #eaf2ff;
+}
+
+.pd-cta p {
+  margin: 0;
+  color: #cfe0f7;
+}
+
+.pd-cta-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* Entrance animation */
+@keyframes pd-fade {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+
+
+
+/* === Mobile layout for meta cards (2x2 rows) === */
+@media (max-width: 560px){
+  .pd-meta{
+    grid-template-columns: 1fr 1fr;   /* بدلاً من 1 عمود */
+    align-items: stretch;
+  }
+  .pd-card{
+    padding: 14px;                     /* تماسك بصري في الجوال */
+  }
+  .pd-meta-label{
+    display: block;
+    margin-bottom: 4px;
+    font-size: 13px;
+  }
+  .pd-meta-value{
+    font-size: 18px;
+    line-height: 1.3;
+    word-break: break-word;            /* لو رابط النطاق طويل */
+  }
+  .pd-meta-value .pd-link{
+    word-break: break-all;             /* يضمن التفاف الرابط الطويل */
+  }
+}
+
+@media (max-width: 560px){
+  .pd-meta{
+    grid-template-columns: 1fr 1fr;
+    align-items: center;      /* يوسّط العناصر داخل الصف */
+  }
+  .pd-card{
+    display: flex;            /* نمط مرن يسهّل التوسيط */
+    flex-direction: column;
+    align-items: center;      /* توسيط أفقي */
+    justify-content: center;  /* توسيط عمودي */
+    text-align: center;       /* النص في الوسط */
+    min-height: 88px;         /* ارتفاع مريح للتوسيط */
+  }
+  .pd-meta-label{ margin-bottom: 6px; }
+  .pd-meta-value{ line-height: 1.3; }
+}
+
+
+
+/* ==== Container ثابت لكل الصفحة (لو مش موجود عندك) ==== */
+.pd-container{max-width:1200px; margin-inline:auto; padding-inline:16px}
+
+/* ==== فيديو المشروع: نسبة 16:9، عرض كامل، ارتفاع مناسب ==== */
+.pd-video{
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+}
+.pd-video video{
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;      /* يمنع التمدد الغريب على الديسكتوب */
+  max-height: 70vh;        /* يمنع التغطيه الزايده */
+  object-fit: cover;       /* لو البوستر أو الفيديو له حواف */
+}
+
+/* ==== دعم تضمين iframe (يوتيوب/فيميو) إن استخدمته بدل <video> ==== */
+.pd-video--embed{ position: relative; width: 100%; padding-top: 56.25%; /* 16:9 */ }
+.pd-video--embed iframe{
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  border: 0;
+}
+
+/* مسافات الهيرو لطول أنظف */
+.pd-hero{ padding-block: 20px 28px; }

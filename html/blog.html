@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>المدونة — Technovizen</title>
+  <meta name="description" content="مقالات تقنية من Technovizen حول تطوير التطبيقات والويب وتجربة المستخدم والأداء." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style/blog.css" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="المدونة — Technovizen">
+  <meta property="og:description" content="تحليلات ودروس عملية في تطوير المنتجات الرقمية.">
+  <meta property="og:url" content="https://example.com/blog.html">
+  <meta property="og:image" content="https://example.com/assets/og-blog.jpg">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="المدونة — Technovizen">
+  <meta name="twitter:description" content="تحليلات ودروس عملية في تطوير المنتجات الرقمية.">
+  <meta name="twitter:image" content="https://example.com/assets/og-blog.jpg">
+</head>
+<body>
+  <header class="site container">
+    <a class="brand" href="/">Technovizen</a>
+    <nav class="nav">
+      <a href="/">الرئيسية</a>
+      <a href="/blog.html" class="active">المدونة</a>
+      <a href="/#contact">تواصل</a>
+    </nav>
+  </header>
+
+  <main id="blog" class="container" itemscope itemtype="https://schema.org/Blog">
+    <!-- Hero -->
+    <section class="hero">
+      <div>
+        <h1 class="title" itemprop="name">المدونة</h1>
+        <p class="sub" itemprop="description">تحليلات، دروس، وتجارب عملية في بناء المنتجات الرقمية.</p>
+      </div>
+      <div class="controls">
+        <div class="search">
+          <input id="searchInput" type="search" placeholder="ابحث في المقالات..." aria-label="بحث" />
+          <button id="searchBtn" class="btn">بحث</button>
+        </div>
+        <div class="filters" role="tablist" aria-label="تصنيفات">
+          <button class="chip is-active" data-tag="all" role="tab" aria-selected="true">الكل</button>
+          <button class="chip" data-tag="Flutter" role="tab">Flutter</button>
+          <button class="chip" data-tag="React" role="tab">React</button>
+          <button class="chip" data-tag="UI/UX" role="tab">UI/UX</button>
+          <button class="chip" data-tag="DevOps" role="tab">DevOps</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Grid -->
+    <section class="grid" id="postsGrid" aria-live="polite" itemscope itemtype="https://schema.org/ItemList" itemprop="blogPosts">
+      <!-- بطاقة 1 -->
+      <article class="card" data-tags="Flutter,UI/UX" itemprop="itemListElement" itemscope itemtype="https://schema.org/BlogPosting">
+        <a class="media" href="/blog-post.html?slug=flutter-design-system" itemprop="url">
+          <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1600&auto=format&fit=crop" alt="تصميم Design System مع Flutter" loading="lazy" itemprop="image">
+          <span class="label">Flutter</span>
+        </a>
+        <div class="body">
+          <a class="title" href="/blog-post.html?slug=flutter-design-system" itemprop="headline">بناء Design System في Flutter لمشاريع متعددة</a>
+          <p class="excerpt" itemprop="description">توحيد المكونات والحالات لواجهات متسقة وسريعة التطوير.</p>
+          <div class="meta">
+            <time datetime="2025-10-20" itemprop="datePublished">20 أكتوبر 2025</time>
+            <span class="dot">•</span><span>5 دقائق</span>
+          </div>
+          <div class="tags" itemprop="keywords">
+            <span class="chip sm">Flutter</span><span class="chip sm">UI/UX</span>
+          </div>
+          <meta itemprop="author" content="Technovizen">
+          <meta itemprop="dateModified" content="2025-10-20">
+        </div>
+      </article>
+
+      <!-- بطاقة 2 -->
+      <article class="card" data-tags="React,DevOps" itemprop="itemListElement" itemscope itemtype="https://schema.org/BlogPosting">
+        <a class="media" href="/blog-post.html?slug=nextjs-ssr-seo" itemprop="url">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop" alt="تحسين SEO مع Next.js وSSR" loading="lazy" itemprop="image">
+          <span class="label">React</span>
+        </a>
+        <div class="body">
+          <a class="title" href="/blog-post.html?slug=nextjs-ssr-seo" itemprop="headline">Next.js وSSR: كيف ترفع نتائج SEO بدون تعقيد</a>
+          <p class="excerpt" itemprop="description">أفضل ممارسات الفهرسة والروابط القانونية وOpen Graph.</p>
+          <div class="meta">
+            <time datetime="2025-10-12" itemprop="datePublished">12 أكتوبر 2025</time>
+            <span class="dot">•</span><span>7 دقائق</span>
+          </div>
+          <div class="tags" itemprop="keywords">
+            <span class="chip sm">React</span><span class="chip sm">DevOps</span>
+          </div>
+          <meta itemprop="author" content="Technovizen">
+          <meta itemprop="dateModified" content="2025-10-12">
+        </div>
+      </article>
+
+      <!-- بطاقة 3 -->
+      <article class="card" data-tags="UI/UX" itemprop="itemListElement" itemscope itemtype="https://schema.org/BlogPosting">
+        <a class="media" href="/blog-post.html?slug=ux-checklist" itemprop="url">
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1600&auto=format&fit=crop" alt="قائمة فحص UX قبل الإطلاق" loading="lazy" itemprop="image">
+          <span class="label">UI/UX</span>
+        </a>
+        <div class="body">
+          <a class="title" href="/blog-post.html?slug=ux-checklist" itemprop="headline">قائمة فحص UX قبل الإطلاق: 21 عنصر لا تفوّتها</a>
+          <p class="excerpt" itemprop="description">من الوصولية إلى حالات الخطأ والتغذية البصرية.</p>
+          <div class="meta">
+            <time datetime="2025-09-28" itemprop="datePublished">28 سبتمبر 2025</time>
+            <span class="dot">•</span><span>6 دقائق</span>
+          </div>
+          <div class="tags" itemprop="keywords">
+            <span class="chip sm">UI/UX</span>
+          </div>
+          <meta itemprop="author" content="Technovizen">
+          <meta itemprop="dateModified" content="2025-09-28">
+        </div>
+      </article>
+
+      <meta itemprop="itemListOrder" content="http://schema.org/ItemListOrderDescending">
+      <meta itemprop="numberOfItems" content="3">
+    </section>
+
+    <!-- Pagination -->
+    <nav class="pager" aria-label="تنقل الصفحات">
+      <button class="btn ghost" disabled>السابق</button>
+      <span class="page">1</span>
+      <button class="btn">التالي</button>
+    </nav>
+  </main>
+
+  <footer class="site container">
+    <p>© Technovizen</p>
+  </footer>
+
+  <script src="../js/blog.js" defer></script>
+</body>
+</html>

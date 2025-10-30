@@ -1,0 +1,73 @@
+/* ===== KPIs — Ultra variant ===== */
+#metricsTable .kpi-card{
+  position:relative; overflow:hidden;
+  background:linear-gradient(180deg,#0f141b,#0f1624);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:18px; padding:16px;
+  box-shadow: 0 16px 50px rgba(0,0,0,.28), inset 0 0 60px rgba(102,163,255,.08);
+  transition: border-color .3s ease, transform .25s ease, box-shadow .3s ease;
+}
+#metricsTable .kpi-card::before{
+  content:""; position:absolute; inset:-1px; border-radius:inherit;
+  background: conic-gradient(from 200deg at 50% 50%,
+    rgba(155,92,243,.12), rgba(102,163,255,.10), rgba(34,211,238,.12), rgba(155,92,243,.12));
+  filter: blur(10px); opacity:.0; transition:opacity .25s ease;
+}
+#metricsTable .kpi-card:hover{ transform: translateY(-2px); border-color:#2a3a6a; }
+#metricsTable .kpi-card:hover::before{ opacity:.9; }
+
+#metricsTable .kpi-head{ display:flex; align-items:center; justify-content:space-between; margin-bottom:8px; }
+#metricsTable .kpi-label{ font-weight:900; letter-spacing:.2px; color:#eaf0ff; }
+#metricsTable .kpi-sub{ color:var(--muted,#9fb2c9); font-size:.9rem; }
+
+#metricsTable .kpi-value{
+  display:flex; align-items:baseline; gap:6px;
+  font-weight:900; font-size:clamp(1.3rem, 2.6vw, 1.8rem);
+}
+#metricsTable .kpi-value .unit{ font-size:.98rem; color:var(--muted,#9fb2c9); }
+
+/* شريط متدرّج بحدّ حي */
+#metricsTable .kpi-bar{
+  position:relative; height:12px; margin-top:12px; border-radius:999px; overflow:hidden;
+  background: linear-gradient(180deg, #0b1020, #0f1624);
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow: inset 0 0 30px rgba(0,0,0,.35);
+}
+#metricsTable .kpi-bar::before{
+  /* إطار متوهّج */
+  content:""; position:absolute; inset:-1px; border-radius:inherit; pointer-events:none;
+  background: conic-gradient(from 180deg,
+    rgba(155,92,243,.22), rgba(102,163,255,.18), rgba(34,211,238,.22), rgba(155,92,243,.22));
+  filter: blur(12px); opacity:.18; transition:opacity .35s ease;
+}
+#metricsTable .kpi-card:hover .kpi-bar::before{ opacity:.32; }
+
+#metricsTable .kpi-bar .fill{
+  position:absolute; inset:0 auto 0 0; width:0%;
+  background: linear-gradient(90deg,
+    var(--violet, #9b5cf3), var(--blue, #66a3ff), var(--cyan, #22d3ee));
+  background-size: 240% 100%;
+  background-position: 0% 50%;
+  border-radius:inherit;
+  box-shadow: 0 0 24px rgba(102,163,255,.25), inset 0 0 22px rgba(255,255,255,.08);
+  transition: width .9s cubic-bezier(.2,.8,.2,1);
+}
+#metricsTable .kpi-card.is-active .kpi-bar .fill{
+  animation: kpi-flow 1.8s linear infinite;
+}
+@keyframes kpi-flow{ 0%{background-position:0% 50%} 100%{background-position:100% 50%} }
+
+#metricsTable .kpi-bar .shine{
+  position:absolute; inset:-40% -40%; pointer-events:none; opacity:0;
+  background: radial-gradient(180px 80px at var(--mx,30%) var(--my,50%), rgba(255,255,255,.12), transparent 45%);
+  transition: opacity .25s ease;
+}
+#metricsTable .kpi-card.is-active .kpi-bar .shine{ opacity:1; }
+
+/* شبكة 2×N وتجاوب */
+#metricsTable .kpi-grid{
+  display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:16px;
+}
+@media (max-width:720px){
+  #metricsTable .kpi-grid{ grid-template-columns:1fr; }
+}

@@ -1,0 +1,106 @@
+/* ===== SERVICES (scoped to #services) ===== */
+
+/* :root{
+  --bg:#0c1117; --surface:#0f141b; --line:#1b2430; --text:#e7edf3; --muted:#9fb2c9;
+  --blue:#58a6ff; --violet:#a78bfa; --cyan:#7dd3fc;
+} */
+
+/* Section layout */
+#services{padding:80px 0}
+@media (max-width:768px){ #services{padding:56px 0} }
+
+#services .section-header{text-align:center;margin-bottom:48px}
+#services .section-title{font-size:2.3rem;font-weight:900;display:inline-block;letter-spacing:.2px}
+#services .section-title .gradient{
+  background:linear-gradient(135deg,var(--violet),var(--blue));
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+#services .section-subtitle{font-size:1.05rem;color:var(--muted);max-width:700px;margin:14px auto 0}
+
+/* mini-hero strip */
+#services .services-hero{
+  position:relative;margin:-10px 0 26px;padding:18px;border:1px solid var(--line);
+  border-radius:16px;background:linear-gradient(180deg,#0f141b,#0f141b);overflow:hidden
+}
+#services .services-hero .section-header{margin:0}
+#services .services-hero .beam{
+  position:absolute;inset:-30%;
+  background:
+    radial-gradient(800px 200px at 10% 10%, rgba(88,166,255,.13), transparent 60%),
+    radial-gradient(600px 200px at 90% 20%, rgba(167,139,250,.12), transparent 60%);
+  filter:blur(6px);animation:services-beam 16s linear infinite
+}
+@keyframes services-beam{from{transform:translateX(0)}to{transform:translateX(-20%)}}
+
+/* Grid */
+#services .services{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+@media (max-width:1024px){#services .services{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){#services .services{grid-template-columns:1fr}}
+
+/* Card */
+#services .card{
+  position:relative;isolation:isolate;background:var(--surface);border:1px solid var(--line);
+  border-radius:18px;padding:24px;overflow:hidden;transform-style:preserve-3d;cursor:pointer;
+  opacity:0;transform:translate3d(0,22px,-40px) rotateX(6deg) scale(.97);
+  transition:opacity .45s ease, transform .45s ease, border-color .25s ease;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+#services .card.reveal{opacity:1;transform:none}
+
+#services .ring{
+  position:absolute;inset:-1px;border-radius:18px;
+  background:conic-gradient(from 180deg at 50% 50%,
+    rgba(88,166,255,.05), rgba(167,139,250,.10), rgba(88,166,255,.05));
+  filter:blur(12px);opacity:0;transition:opacity .35s ease
+}
+#services .card:hover .ring{opacity:.9}
+
+#services .glow{
+  position:absolute;inset:-1px;border-radius:18px;
+  background:
+    radial-gradient(360px 360px at var(--mx,50%) var(--my,50%), rgba(88,166,255,.18), transparent 40%),
+    radial-gradient(220px 220px at var(--mx,50%) var(--my,50%), rgba(167,139,250,.14), transparent 45%);
+  mix-blend-mode:screen;opacity:0;transition:opacity .25s ease
+}
+#services .card:hover .glow{opacity:1}
+
+#services .icon{
+  width:54px;height:54px;display:grid;place-items:center;border-radius:14px;
+  background:#ffffff10;border:1px solid #ffffff1c;filter:drop-shadow(0 10px 22px rgba(88,166,255,.16))
+}
+#services .card h3{font-size:1.18rem;font-weight:900;margin-top:12px}
+#services .card p{color:var(--muted);font-size:.95rem;margin-top:6px}
+#services .chip{
+  display:inline-block;margin-top:10px;padding:6px 10px;border-radius:999px;
+  font-size:.78rem;font-weight:800;color:#dbe8ff;background:#ffffff10;border:1px solid #ffffff1c
+}
+#services .cta-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+
+/* Buttons + Ripple */
+#services .a-btn{
+  position:relative;display:inline-flex;align-items:center;gap:8px;
+  padding:10px 14px;border-radius:12px;border:1px solid #ffffff22;
+  background:#ffffff0f;color:#fff;font-weight:800;user-select:none
+}
+#services .a-btn.primary{background:linear-gradient(135deg,var(--violet),var(--blue));border:none}
+
+#services .ripple{
+  position:absolute;width:14px;height:14px;border-radius:50%;
+  background:radial-gradient(circle,#fff,rgba(255,255,255,0) 70%);
+  transform:translate(-50%,-50%);animation:services-ripple .65s ease forwards;pointer-events:none
+}
+@keyframes services-ripple{
+  from{opacity:.55;transform:translate(-50%,-50%) scale(1)}
+  to{opacity:0;transform:translate(-50%,-50%) scale(16)}
+}
+
+/* Accessibility / reduced motion */
+@media (prefers-reduced-motion: reduce){
+  #services .card{transition:none}
+  #services .glow,#services .ring{transition:none}
+  #services .services-hero .beam{animation:none}
+}

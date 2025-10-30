@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+</html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ebtakar Tech Footer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+
+    <style>
+        /* ===== Footer v2 Tight Grid ===== */
+        #site-footer {
+            --bg: #0b1020;
+            --panel: #0f141b;
+            --ink: #e7edf3;
+            --muted: #9fb2c9;
+            --ring: rgba(255, 255, 255, .08);
+            --pri: #3d6aff;
+            --vio: #7c3aed;
+            background: var(--bg);
+            color: var(--muted);
+            border-top: 1px solid rgba(255, 255, 255, .06);
+            margin-top: 32px
+        }
+
+        #site-footer .sf-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px
+        }
+
+        /* wrap + grid */
+        #site-footer .sf-wrap {
+            padding: 24px 0 20px
+        }
+
+        #site-footer .sf-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.2fr;
+            gap: 24px
+        }
+
+        @media (max-width:1100px) {
+            #site-footer .sf-grid {
+                grid-template-columns: 1fr 1fr
+            }
+        }
+
+        @media (max-width:640px) {
+            #site-footer .sf-grid {
+                grid-template-columns: 1fr
+            }
+        }
+
+        /* column */
+        #site-footer .sf-col {
+            background: linear-gradient(180deg, rgba(255, 255, 255, .02), rgba(255, 255, 255, 0));
+            border: 1px solid var(--ring);
+            border-radius: 14px;
+            padding: 16px 14px
+        }
+
+        /* brand */
+        #site-footer .sf-brand .sf-brand-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--ink);
+            margin-bottom: 8px
+        }
+
+        #site-footer .sf-brand .sf-logo {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: radial-gradient(120% 120% at 20% 10%, var(--pri) 0%, var(--vio) 55%, var(--bg) 100%);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .35)
+        }
+
+        #site-footer .sf-brand .sf-en {
+            display: block;
+            font: 900 16px/1 'Cairo', sans-serif
+        }
+
+        #site-footer .sf-brand .sf-ar {
+            display: block;
+            font: 700 12px/1.6 'Cairo', sans-serif;
+            color: var(--muted)
+        }
+
+        #site-footer .sf-about {
+            margin: 8px 0 0;
+            font: 400 14px/1.8 'Cairo', sans-serif
+        }
+
+        /* social */
+        #site-footer .sf-social {
+            display: flex;
+            gap: 8px;
+            margin-top: 10px
+        }
+
+        #site-footer .sf-s {
+            display: inline-flex;
+            width: 36px;
+            height: 36px;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--ring);
+            border-radius: 10px;
+            color: var(--muted);
+            background: rgba(255, 255, 255, .02);
+            transition: .2s
+        }
+
+        #site-footer .sf-s:hover {
+            transform: translateY(-2px);
+            color: #dbe8ff;
+            border-color: rgba(255, 255, 255, .18)
+        }
+
+        #site-footer .sf-s svg {
+            display: block
+        }
+
+        /* titles */
+        #site-footer .sf-title {
+            margin: 0 0 8px;
+            font: 800 14px/1.3 'Cairo', sans-serif;
+            color: var(--ink)
+        }
+
+        /* links */
+        #site-footer .sf-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            gap: 6px
+        }
+
+        #site-footer .sf-links a {
+            color: var(--muted);
+            text-decoration: none
+        }
+
+        #site-footer .sf-links a:hover {
+            color: #dbe8ff
+        }
+
+        /* contact */
+        #site-footer .sf-contact {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            gap: 6px
+        }
+
+        #site-footer .sf-contact li {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 8px
+        }
+
+        #site-footer .sf-contact li span {
+            font: 700 12px/1.6 'Cairo', sans-serif;
+            color: var(--ink)
+        }
+
+        #site-footer .sf-contact a {
+            color: #dbe8ff;
+            text-decoration: none
+        }
+
+        #site-footer .sf-map {
+            color: #dbe8ff
+        }
+
+        /* newsletter */
+        #site-footer .sf-news {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            flex-wrap: wrap
+        }
+
+        #site-footer .sf-news input {
+            flex: 1;
+            min-width: 220px;
+            padding: 10px 12px;
+            border-radius: 10px;
+            border: 1px solid var(--ring);
+            background: var(--panel);
+            color: var(--ink);
+            outline: none
+        }
+
+        #site-footer .sf-btn {
+            padding: 10px 14px;
+            border-radius: 10px;
+            border: 0;
+            cursor: pointer;
+            color: #fff;
+            background: linear-gradient(135deg, var(--pri), var(--vio))
+        }
+
+        #site-footer .sf-msg {
+            font: 400 12px/1.8 'Cairo', sans-serif;
+            min-height: 1.8em;
+            margin: 4px 2px 0
+        }
+
+        /* bottom bar */
+        #site-footer .sf-bottom {
+            border-top: 1px solid rgba(255, 255, 255, .06)
+        }
+
+        #site-footer .sf-bottom-row {
+            display: grid;
+            grid-template-columns: 1fr auto auto;
+            gap: 12px;
+            align-items: center;
+            padding: 12px 16px
+        }
+
+        @media (max-width:900px) {
+            #site-footer .sf-bottom-row {
+                grid-template-columns: 1fr;
+                text-align: center;
+                justify-items: center
+            }
+        }
+
+        #site-footer .sf-copy {
+            font: 400 13px/1.8 'Cairo', sans-serif
+        }
+
+        #site-footer .sf-legal {
+            list-style: none;
+            display: flex;
+            gap: 12px;
+            padding: 0;
+            margin: 0
+        }
+
+        #site-footer .sf-legal a {
+            color: var(--muted);
+            text-decoration: none
+        }
+
+        #site-footer .sf-legal a:hover {
+            color: #dbe8ff
+        }
+
+        #site-footer .sf-top {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: var(--panel);
+            color: var(--ink);
+            border: 1px solid var(--ring);
+            cursor: pointer;
+            transition: .2s
+        }
+
+        #site-footer .sf-top:hover {
+            transform: translateY(-2px)
+        }
+
+
+
+
+        /* Update these CSS rules in your style section */
+
+        /* Adjust container width and padding */
+        #site-footer .sf-container {
+            max-width: 1400px;
+            /* Increased from 1200px */
+            margin: 0 auto;
+            padding: 0 32px;
+            /* Increased padding */
+        }
+
+        /* Improve grid spacing and column sizes */
+        #site-footer .sf-grid {
+            display: grid;
+            grid-template-columns: 2.5fr 1.5fr 1.5fr;
+            /* Better column distribution */
+            gap: 40px;
+            /* Increased gap */
+            padding: 40px 0;
+            /* Added padding */
+        }
+
+        /* Enhance column styling */
+        #site-footer .sf-col {
+            padding: 24px 20px;
+            /* Increased padding */
+            border-radius: 16px;
+            /* Slightly larger radius */
+        }
+
+        /* Improve brand section */
+        #site-footer .sf-brand .sf-logo {
+            width: 48px;
+            /* Larger logo */
+            height: 48px;
+        }
+
+        #site-footer .sf-brand .sf-en {
+            font-size: 20px;
+            /* Larger brand name */
+        }
+
+        #site-footer .sf-brand .sf-ar {
+            font-size: 14px;
+            /* Larger Arabic text */
+        }
+
+        /* Responsive improvements */
+        @media (max-width: 1200px) {
+            #site-footer .sf-grid {
+                grid-template-columns: 2fr 1fr 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            #site-footer .sf-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 24px;
+            }
+
+            #site-footer .sf-container {
+                padding: 0 20px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            #site-footer .sf-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            #site-footer .sf-col {
+                padding: 20px 16px;
+            }
+        }
+
+        /* Enhance bottom bar */
+        #site-footer .sf-bottom-row {
+            padding: 20px 32px;
+            gap: 24px;
+        }
+
+        /* Improve typography */
+        #site-footer .sf-title {
+            font-size: 16px;
+            margin-bottom: 16px;
+        }
+
+        #site-footer .sf-links,
+        #site-footer .sf-contact {
+            font-size: 14px;
+            gap: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <footer id="site-footer" dir="rtl" aria-label="تذييل الموقع">
+        <div class="sf-wrap">
+            <div class="sf-container">
+                <div class="sf-grid">
+                    <!-- 1) براند -->
+                    <section class="sf-col sf-brand">
+                        <a class="sf-brand-link" href="#home" aria-label="Ebtakar Tech">
+                            <span class="sf-logo" aria-hidden="true"></span>
+                            <div class="sf-brand-text">
+                                <strong class="sf-en">Ebtakar Tech</strong>
+                                <span class="sf-ar">شركة الابتكار تك</span>
+                            </div>
+                        </a>
+                        <p class="sf-about">
+                            حلول برمجية متكاملة — مواقع، تطبيقات، متاجر، تكاملات، وسحابة.
+                        </p>
+
+                        <div class="sf-social" aria-label="روابط الشبكات الاجتماعية">
+                            <a class="sf-s" href="https://x.com" target="_blank" rel="noopener" aria-label="X">
+                                <svg viewBox="0 0 24 24" width="18" height="18">
+                                    <path fill="currentColor"
+                                        d="M18.244 2H21L13.5 10.26 22 22h-6.24l-4.86-6.36L5.46 22H2l8.06-8.78L2 2h6.24l4.47 5.94L18.244 2Zm-2.2 18h1.37L7.03 4H5.66l10.384 16Z" />
+                                </svg>
+                            </a>
+                            <a class="sf-s" href="https://www.linkedin.com/company/yourcompany" target="_blank"
+                                rel="noopener" aria-label="LinkedIn">
+                                <svg viewBox="0 0 24 24" width="18" height="18">
+                                    <path fill="currentColor"
+                                        d="M22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0zM7.06 20.45H3.56V9h3.5v11.45zM5.31 7.43a2.02 2.02 0 1 1 0-4.04 2.02 2.02 0 0 1 0 4.04zM20.45 20.45h-3.49v-5.57c0-1.33-.03-3.04-1.86-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.48V9h3.35v1.56h.05c.47-.88 1.61-1.85 3.31-1.85 3.53 0 4.26 2.33 4.26 5.35v6.39z" />
+                                </svg>
+                            </a>
+                            <a class="sf-s" href="https://www.instagram.com" target="_blank" rel="noopener"
+                                aria-label="Instagram">
+                                <svg viewBox="0 0 24 24" width="18" height="18">
+                                    <path fill="currentColor"
+                                        d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.06 1.97.25 2.67.54.72.28 1.33.66 1.93 1.26s.98 1.21 1.26 1.93c.29.7.48 1.5.54 2.67.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.06 1.17-.25 1.97-.54 2.67-.28.72-.66 1.33-1.26 1.93s-1.21.98-1.93 1.26c-.7.29-1.5.48-2.67.54-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.06-1.97-.25-2.67-.54a5.43 5.43 0 0 1-1.93-1.26 5.43 5.43 0 0 1-1.26-1.93c-.29-.7-.48-1.5-.54-2.67C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.06-1.17.25-1.97.54-2.67.28-.72.66-1.33 1.26-1.93s1.21-.98 1.93-1.26c.7-.29 1.5-.48 2.67-.54C8.42 2.21 8.8 2.2 12 2.2Zm0 5.4a4.4 4.4 0 1 0 0 8.8 4.4 4.4 0 0 0 0-8.8Z" />
+                                </svg>
+                            </a>
+                            <a class="sf-s" href="https://wa.me/966568767724" target="_blank" rel="noopener"
+                                aria-label="WhatsApp">
+                                <svg viewBox="0 0 24 24" width="18" height="18">
+                                    <path fill="currentColor"
+                                        d="M20.52 3.48A11.8 11.8 0 0 0 12.07 0C5.53 0 .23 5.3.23 11.85c0 2.09.55 4.12 1.61 5.92L0 24l6.4-1.75a11.75 11.75 0 0 0 5.67 1.47h.01c6.55 0 11.85-5.3 11.85-11.85 0-3.17-1.24-6.15-3.41-8.32Z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </section>
+
+                    <!-- 2) روابط -->
+                    <nav class="sf-col">
+                        <h4 class="sf-title">روابط سريعة</h4>
+                        <ul class="sf-links">
+                            <li><a href="#about">من نحن</a></li>
+                            <li><a href="#services">الخدمات</a></li>
+                            <li><a href="#packages">الباقات</a></li>
+                            <li><a href="#worksShow">المشاريع</a></li>
+                            <li><a href="#tech">التقنيات</a></li>
+                            <li><a href="#faq">الأسئلة الشائعة</a></li>
+                            <li><a href="#homeBlog">المدوّنة</a></li>
+                            <li><a href="#support">تواصل معنا</a></li>
+                        </ul>
+                    </nav>
+
+                    <!-- 3) تواصل -->
+                    <section class="sf-col">
+                        <h4 class="sf-title">تواصل</h4>
+                        <ul class="sf-contact">
+                            <li><span>الهاتف</span><a href="tel:+966568767724">+966 56 876 7724</a></li>
+                            <li><span>البريد</span><a href="mailto:info@ebtakartech.com">info@ebtakartech.com</a></li>
+                            <li><span>العنوان</span>الملك فهد، الرياض 12271 — <a class="sf-map"
+                                    href="https://www.google.com/maps?q=24.8150994,46.7543628" target="_blank"
+                                    rel="noopener">افتح الخريطة</a></li>
+                            <li><span>العمل</span>الأحد–الخميس 9ص–6م</li>
+                        </ul>
+                    </section>
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="sf-bottom">
+            <div class="sf-container sf-bottom-row">
+                <div class="sf-copy">© <span id="year"></span> شركة الابتكار تك — جميع الحقوق محفوظة</div>
+                <ul class="sf-legal">
+                    <li><a href="#privacy">سياسة الخصوصية</a></li>
+                    <li><a href="#terms">الشروط والأحكام</a></li>
+                    <li><a href="#cookies">سياسة الكوكيز</a></li>
+                </ul>
+                <button id="backTop" class="sf-top" aria-label="للأعلى">↑</button>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // سنة ديناميكية
+        document.getElementById('year') && (document.getElementById('year').textContent = new Date().getFullYear());
+
+        // زر الرجوع للأعلى
+        (function () {
+            const btn = document.getElementById('backTop');
+            if (!btn) return;
+            const onScroll = () => {
+                if (window.scrollY > 600) { btn.style.opacity = 1; btn.style.pointerEvents = 'auto'; }
+                else { btn.style.opacity = .0; btn.style.pointerEvents = 'none'; }
+            };
+            btn.style.transition = 'opacity .2s ease';
+            window.addEventListener('scroll', onScroll, { passive: true });
+            btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+            onScroll();
+        })();
+
+        // اشتراك النشرة (عميل وهمي — أرسل على بريدك أو API لاحقًا)
+        (function () {
+            const form = document.getElementById('newsletter');
+            if (!form) return;
+            const msg = form.querySelector('.msg');
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const email = form.email.value.trim();
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                    msg.textContent = 'رجاءً أدخل بريدًا صالحًا.'; msg.style.color = '#ffb3b3'; return;
+                }
+                msg.textContent = 'تم الاشتراك بنجاح. شكرًا لك!'; msg.style.color = '#9fe6a0';
+                form.reset();
+                // TODO: اربط بـ API (Mailchimp/Elastic Email) هنا
+            });
+        })();
+
+
+    </script>
+</body>
+
+</html>
