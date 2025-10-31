@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>أهم أعمالنا في برمجة وتصميم المواقع والتطبيقات</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Cairo', Arial, sans-serif;
+            background: #f7f7f7;
+            margin: 0;
+            padding: 0;
+            color: #222;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin: 40px 0 20px 0;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        .works-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 32px;
+            margin-bottom: 40px;
+        }
+        .work-card {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+            overflow: hidden;
+            width: 340px;
+            max-width: 95vw;
+            transition: transform 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+        .work-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.13);
+        }
+        .work-image-container {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+            background: #eee;
+            cursor: grab;
+        }
+        .work-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+        .work-image-container:active .work-image {
+            cursor: grabbing;
+        }
+        .work-card-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 18px 16px 8px 16px;
+            color: #1a237e;
+        }
+        .work-card-desc {
+            font-size: 1rem;
+            margin: 0 16px 18px 16px;
+            color: #444;
+            min-height: 48px;
+        }
+        /* تطبيقات */
+        .apps-container .work-card {
+            width: 220px;
+        }
+        .apps-container .work-image-container {
+            height: 420px;
+        }
+        @media (max-width: 600px) {
+            .section-title {
+                font-size: 1.3rem;
+            }
+            .work-card, .apps-container .work-card {
+                width: 98vw;
+                min-width: 0;
+            }
+            .work-image-container, .apps-container .work-image-container {
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="section-title">أهم أعمالنا في برمجة و تصميم المواقع</div>
+        <div class="works-container">
+            <div class="work-card">
+                <div class="work-image-container" onmousedown="startDrag(event, this)">
+                    <img src="https://via.placeholder.com/600x400?text=موقع+1" class="work-image" draggable="false" />
+                </div>
+                <div class="work-card-title">موقع إلكتروني 1</div>
+                <div class="work-card-desc">وصف مختصر عن الموقع الإلكتروني الأول.</div>
+            </div>
+            <div class="work-card">
+                <div class="work-image-container" onmousedown="startDrag(event, this)">
+                    <img src="https://via.placeholder.com/600x400?text=موقع+2" class="work-image" draggable="false" />
+                </div>
+                <div class="work-card-title">موقع إلكتروني 2</div>
+                <div class="work-card-desc">وصف مختصر عن الموقع الإلكتروني الثاني.</div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="section-title">أهم أعمالنا في برمجة و تصميم التطبيقات</div>
+        <div class="works-container apps-container">
+            <div class="work-card">
+                <div class="work-image-container">
+                    <img src="https://via.placeholder.com/300x600?text=تطبيق+1" class="work-image" />
+                </div>
+                <div class="work-card-title">تطبيق جوال 1</div>
+                <div class="work-card-desc">وصف مختصر عن التطبيق الأول.</div>
+            </div>
+            <div class="work-card">
+                <div class="work-image-container">
+                    <img src="https://via.placeholder.com/300x600?text=تطبيق+2" class="work-image" />
+                </div>
+                <div class="work-card-title">تطبيق جوال 2</div>
+                <div class="work-card-desc">وصف مختصر عن التطبيق الثاني.</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // سحب صورة الموقع داخل الكارد
+        function startDrag(e, container) {
+            const img = container.querySelector('.work-image');
+            let startX = e.clientX;
+            let scrollLeft = container.scrollLeft;
+            let isDown = true;
+
+            function onMove(ev) {
+                if (!isDown) return;
+                const x = ev.clientX;
+                container.scrollLeft = scrollLeft - (x - startX);
+                img.style.transform = `translateX(${-(container.scrollLeft)}px)`;
+            }
+            function onUp() {
+                isDown = false;
+                img.style.transform = '';
+                window.removeEventListener('mousemove', onMove);
+                window.removeEventListener('mouseup', onUp);
+            }
+            window.addEventListener('mousemove', onMove);
+            window.addEventListener('mouseup', onUp);
+        }
+    </script>
+</body>
+</html>

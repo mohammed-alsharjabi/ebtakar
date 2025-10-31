@@ -1,0 +1,141 @@
+:root{
+  --bg:#0b1020; --ink:#eaf0ff; --muted:#9fb0d6;
+  --violet:#9b5cf3; --blue:#66a3ff; --line:#213055;
+  --gap:28px; --radius:22px;
+  
+}
+
+
+#worksShow{padding:64px 0;background:transparent}
+#worksShow .container{max-width:1280px;margin-inline:auto;padding:0 18px}
+
+/* Tabs */
+.ws-switch{display:flex;gap:10px;justify-content:center;margin-bottom:12px;position:relative;z-index:3}
+.ws-tab{
+  border:1px solid #ffffff26;border-radius:999px;padding:10px 16px;font-weight:800;
+  background:#ffffff12;color:#fff;cursor:pointer;transition:transform .2s ease,box-shadow .2s ease
+}
+.ws-tab.is-active{background:linear-gradient(90deg,var(--violet),var(--blue));border-color:transparent}
+.ws-tab:active{transform:scale(.98)}
+.ws-title{color:#fff;text-align:center;margin:10px 0 22px;font-weight:900;letter-spacing:.2px}
+
+/* Stage / Nav */
+.ws-stage{position:relative;perspective:1800px}
+.ws-nav{
+  position:absolute;top:50%;transform:translateY(-50%);z-index:10;
+  width:46px;height:46px;border-radius:50%;border:1px solid #ffffff33;background:#0e1626cc;color:#fff;
+  display:grid;place-items:center;cursor:pointer;transition:transform .15s ease,opacity .2s ease;
+  backdrop-filter:blur(8px) saturate(120%)
+}
+.ws-nav:hover{transform:translateY(-50%) scale(1.06)}
+.ws-prev{left:6px} .ws-next{right:6px}
+
+.ws-track{
+  position:relative;isolation:isolate;height:520px; /* يُضبط حسب المود */
+  overflow:visible;touch-action:pan-x;cursor:grab
+}
+.ws-track.dragging{cursor:grabbing}
+
+/* Card (مشترك) */
+.ws-card{
+  position:absolute;inset:0 auto 0 0;margin:auto;border-radius:var(--radius);
+  overflow:hidden;border:1px solid #ffffff1f;background:#0f162a;box-shadow:0 16px 60px #000a;
+  transform-origin:50% 50%;
+  transition:transform .45s cubic-bezier(.2,.8,.2,1), filter .45s, opacity .45s;
+  width:min(980px,82vw);height:520px;
+}
+
+/* متصفح (ويب) */
+.ws-card .chrome{
+  height:46px;background:linear-gradient(180deg,#0e1527,#0c1223);border-bottom:1px solid #ffffff14;
+  display:flex;align-items:center;gap:10px;padding:0 14px;color:#cfe0ff;font-weight:800
+}
+.ws-dot{width:10px;height:10px;border-radius:50%;background:#3a496b}
+.ws-dot.red{background:#ff6578}.ws-dot.yellow{background:#ffd166}.ws-dot.green{background:#5bd386}
+.ws-url{margin-inline-start:8px;opacity:.9}
+.ws-media.web{height:calc(100% - 46px);overflow:hidden}
+.ws-media.web img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* هاتف (تطبيقات) — إطار وشاشة بدون أي ستارة/تعتيم */
+.ws-phone{
+  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  height:100%; width:auto; aspect-ratio:9/19;  /* يملأ ارتفاع الكارد تماماً */
+  border-radius:46px; background:linear-gradient(180deg,#0b0f19,#0e1424);
+  border:1px solid #1f2538;
+  box-shadow:0 18px 60px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.05) inset
+}
+.ws-island{
+  position:absolute; top:14px; left:50%; transform:translateX(-50%);
+  width:38%; height:24px; border-radius:20px;
+  background:#0a0f16; border:1px solid rgba(255,255,255,.08);
+  box-shadow:inset 0 0 0 1px rgba(0,0,0,.55), 0 2px 6px rgba(0,0,0,.45)
+}
+.ws-island .speaker{
+  position:absolute; left:14px; right:34px; top:50%; transform:translateY(-50%);
+  height:6px; border-radius:3px; background:#0d1526;
+  box-shadow: inset 0 -1px 0 #000, inset 0 1px 0 rgba(255,255,255,.06)
+}
+.ws-island .cam{
+  position:absolute; right:12px; top:50%; transform:translateY(-50%);
+  width:8px; height:8px; border-radius:50%; background:#000;
+  box-shadow:0 0 0 2px #101725, inset 0 0 2px #1e3a8a
+}
+.ws-screen{
+  position:absolute; inset:24px; border-radius:26px; overflow:hidden;
+  background:#090f1a; border:1px solid rgba(255,255,255,.10)
+}
+.ws-screen img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* تموضع */
+.ws-card[data-pos="0"]{transform:translate3d(0,0,0) scale(1);z-index:6;filter:none;opacity:1}
+.ws-card[data-pos="-1"]{transform:translate3d(calc(-1*var(--shift)),0,-220px) scale(.86);z-index:5;filter:brightness(.9);opacity:.95}
+.ws-card[data-pos="-2"]{transform:translate3d(calc(-2*var(--shift)),0,-440px) scale(.78);z-index:4;filter:brightness(.85);opacity:.9}
+.ws-card[data-pos="1"]{transform:translate3d(var(--shift),0,-220px) scale(.86);z-index:5;filter:brightness(.9);opacity:.95}
+.ws-card[data-pos="2"]{transform:translate3d(calc(2*var(--shift)),0,-440px) scale(.78);z-index:4;filter:brightness(.85);opacity:.9}
+
+/* مقاسات حسب المود */
+.ws-track[data-mode="web"]{--shift:260px;height:540px}
+.ws-track[data-mode="apps"]{--shift:210px;height:720px}
+
+/* لا ستارة، لا تعتيم — متعمّد */
+
+/* استجابة */
+@media (max-width:1200px){ .ws-track[data-mode="web"]{--shift:240px} }
+@media (max-width:960px){
+  .ws-track[data-mode="web"]{--shift:200px}
+  .ws-track[data-mode="apps"]{--shift:180px}
+  .ws-card{width:min(920px,90vw)}
+}
+@media (max-width:640px){
+  #worksShow{padding:46px 0}
+  .ws-switch{margin-bottom:6px}
+  .ws-title{margin:6px 0 16px}
+  .ws-nav{width:40px;height:40px}
+  .ws-track[data-mode="web"]{--shift:140px;height:420px}
+  .ws-track[data-mode="apps"]{--shift:120px;height:560px}
+  .ws-card{height:420px}
+  .ws-phone{border-radius:42px}
+  .ws-island{height:22px;width:44%}
+  .ws-screen{inset:20px;border-radius:22px}
+}
+
+
+
+/* ========= إظهار شاشة الهاتف فقط في وضع التطبيقات ========= */
+.ws-track[data-mode="apps"] .ws-card{
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  overflow: visible;              /* يمنع قص أطراف الهاتف */
+}
+
+/* تأكيد تمركز الهاتف وملء ارتفاع الكارد */
+.ws-track[data-mode="apps"] .ws-phone{
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
+  width: auto;
+}
+
+
